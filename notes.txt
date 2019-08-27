@@ -1,0 +1,52 @@
+Initialized a git repository.
+
+Success! Created client at /home/mwurzberger/Code/Sandbox/mg-test/client
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd client
+  npm start
+
+// Pass in a value and you now have a built in setter to change it
+const [state, setState] = useState(initialState);
+
+// Example
+const [count, setCount] = useState(1);
+console.log(count); // 1
+setCount(5);
+console.log(count); // 5
+
+// Pass in a function, initialState
+const [state, dispatch] = useReducer(reducer, initialState, init);
+
+function formReducer(state, action) {
+	const newState = {...state};
+	newState[action.key] = action.value;
+	return newState;
+}
+const [formState, dispatch] = useReducer(formReducer, {firstName: 'Luke', lastName: 'Kenobi'});
+console.log(formState); \\ {firstName: 'Luke', lastName: 'Kenobi'}
+dispatch({key: 'firstName', value: 'Obi Wan'});
+console.log(formState); \\ {firstName: 'Obi Wan', lastName: 'Kenobi'}
+
+
+
+
+setState(prevState => {
+  // Object.assign would also work
+  return {...prevState, ...updatedValues};
+});
